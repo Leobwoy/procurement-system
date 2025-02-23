@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Procurement Records</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Item Name</th>
+            <th>Supplier</th>
+            <th>Quantity</th>
+            <th>Receiver</th>
+            <th>Package Type</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if records %}
+        {% for record in records %}
+        <tr>
+            <td>{{ record.item_name }}</td>
+            <td>{{ record.supplier }}</td>
+            <td>{{ record.quantity }}</td>
+            <td>{{ record.receiver }}</td>
+            <td>{{ record.package_type }}</td>
+            <td>{{ record.status }}</td>
+            <td>
+                <a href="{{ url_for('edit', id=record.id) }}">
+                    <button type="button">Edit</button>
+                </a>
+                <form action="{{ url_for('delete', id=record.id) }}" method="POST" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="7">No records available. <a href="{{ url_for('add_procurement') }}">Add New Records.</a></td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}
+
+

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Procurement Records</h1>
+    
+<!-- Search and filter form -->
+<form method="GET" action="{{ url_for('procurement') }}">
+    <input type="text" name="search_query" value="{{ search_query or '' }}" placeholder="Search by Item Name, Supplier, or Package Type...">
+    <select name="status">
+        <option value="">All Statuses</option>
+        <option value="Pending" {% if filter_status == 'Pending' %}selected{% endif %}>Pending</option>
+        <option value="Completed" {% if filter_status == 'Completed' %}selected{% endif %}>Completed</option>
+        <option value="In Progress" {% if filter_status == 'In Progress' %}selected{% endif %}>In Progress</option>
+    </select>
+    <button type="submit">Search</button>
+</form>
+
+    <a href="{{ url_for('view_data') }}">View All Records</a>
+{% endblock %}

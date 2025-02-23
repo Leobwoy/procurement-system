@@ -1,0 +1,225 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+   /* height: 100vh;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+    display: fixed; */ 
+    color: #333;
+    line-height: 1.6;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: slideshow 30s infinite;
+}
+
+@keyframes slideshow {
+    0% {background-image: url('../images/img1.jpg');}
+    33% {background-image: url('../images/img2.jpg');}
+    66% {background-image: url('../images/img3.jpg');}
+    100% {background-image: url('../images/img1.jpg');}
+}
+
+header {
+    background: linear-gradient(to right, #4285F4, #34A853);
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+header nav ul li a:hover {
+    background: rgba(223, 231, 228, 0.292);
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background: transparent;
+    color: #13a8ab;
+    position: relative;
+
+}
+
+/* Flash Messages */
+.flash-messages {
+    list-style: none;
+    padding: 0.5rem 1rem;
+    background: #ffeeba;
+    color: #856404;
+    border: 1px solid #ffeeba;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Forms */
+form {
+    background: white;
+    border: 1px solid #ddd; 
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: 500;
+    color: #333;
+}
+
+form input,
+form select,
+form button {
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd; 
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form input:focus,
+form select:focus {
+    border-color: #4285F4;
+    outline: none;
+    box-shadow: 0 0 5px rgba(66, 133, 244, 0.5);
+}
+
+form button {
+    background: linear-gradient(to right, #4285F4, #34A853);
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+form button:hover {
+    background: linear-gradient(to right, #34A853, #4285F4);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
+button {
+    width: 85%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+button {
+    display: inline;
+    background: linear-gradient(to right, #4285F4, #34A853);
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(to right, #34A853, #4285F4);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: white;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table thead {
+    background: #4285F4;
+    color: white;
+    text-align: left;
+}
+
+table th,
+table td {
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+
+table tbody tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+table tbody tr:hover {
+    background: #f1f1f1;
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: #4285F4;
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Links */
+a {
+    color: #4285F4;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #34A853;
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.hidden {
+    display: none;
+}

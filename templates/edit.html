@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Edit Record</h1>
+<form method="POST" action="{{ url_for('edit', id=record.id) }}">
+    <label>Item Name:</label>
+    <input type="text" name="item_name" value="{{ record.item_name }}" required>
+    
+    <label>Supplier:</label>
+    <input type="text" name="supplier" value="{{ record.supplier }}" required>
+    
+    <label>Quantity:</label>
+    <input type="number" name="quantity" value="{{ record.quantity }}" required>
+    
+    <label>Receiver:</label>
+    <input type="text" name="receiver" value="{{ record.receiver }}" required>
+    
+    <label>Package Type:</label>
+    <input type="text" name="package_type" value="{{ record.package_type }}" required>
+    
+    <label>Status:</label>
+    <select name="status" required>
+        <option value="Pending" {% if record.status == 'Pending' %}selected{% endif %}>Pending</option>
+        <option value="Completed" {% if record.status == 'Completed' %}selected{% endif %}>Completed</option>
+        <option value="In Progress" {% if record.status == 'In Progress' %}selected{% endif %}>In Progress</option>
+    </select>
+    
+    <button type="submit">Update Record</button>
+</form>
+{% endblock %}
+

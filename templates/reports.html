@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Reports</h1>
+    <p>Select the type of report you want to generate:</p>
+    
+    <form action="{{ url_for('reports') }}" method="POST">
+        <label for="report_type">Report Type:</label>
+        <select name="report_type" id="report_type">
+            <option value="status">Status Report</option>
+            <option value="quantity">Quantity Report</option>
+        </select>
+        <button type="submit">Generate Report</button>
+    </form>
+
+    {% if report %}
+        <h3>Generated Report:</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Package Name</th>
+                    <th>Supplier</th>
+                    <th>Quantity</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in report %}
+                    <tr>
+                        <td>{{ row.item_name }}</td>
+                        <td>{{ row.supplier }}</td>
+                        <td>{{ row.quantity }}</td>
+                        <td>{{ row.status }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}
